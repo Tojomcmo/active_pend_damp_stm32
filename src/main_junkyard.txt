@@ -1,0 +1,29 @@
+
+********************SENSOR************************
+
+MagneticSensorPWM sensor = MagneticSensorPWM(2, 4, 934);
+
+void setup() 
+
+
+  // initialise magnetic sensor hardware
+  sensor.init();
+
+   // comment out to use sensor in blocking (non-interrupt) way
+  sensor.enableInterrupt(doPWM);
+
+
+void loop()
+  // iterative function updating the sensor internal variables
+  // it is usually called in motor.loopFOC()
+  // this function reads the sensor hardware and 
+  // has to be called before getAngle nad getVelocity
+  sensor.update();
+  sensor.getAngle()
+  sensor.getVelocity();
+
+
+
+  Elec angle to zero 1.56
+  Motor_kv = 170.00
+  Motor offset/direction =   motor.initFOC(1.5117, CW);
